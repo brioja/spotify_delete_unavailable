@@ -1,11 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './LoginPage';
+import RedirectPage from './RedirectPage';
 
 function App() {
   return (
-    <div>
-      <h1>Welcome to My App</h1>
-      <p>This is a basic setup without routing.</p>
-    </div>
+    <Router basename="/spotify_delete_unavailable">
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/redirect" element={<RedirectPage />} />
+      </Routes>
+    </Router>
   );
 }
 
