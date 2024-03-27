@@ -5,7 +5,7 @@ import RedirectPage from './RedirectPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/spotify-delete-unavailable">
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/redirect" element={<RedirectPage />} />
