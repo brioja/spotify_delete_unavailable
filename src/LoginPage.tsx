@@ -1,7 +1,12 @@
 import React from 'react';
 
 const clientId = 'bb5d13f3082c499fa9a2b2f86297b91d';
-const redirectUri = encodeURIComponent('http://localhost:3000/spotify_delete_unavailable/redirect'); // Ensure this matches your application's redirect URI
+
+// Dynamically set redirectUri based on the environment
+const redirectUri = process.env.NODE_ENV === 'production'
+  ? encodeURIComponent('https://brioja.github.io/spotify_delete_unavailable/redirect')
+  : encodeURIComponent('http://localhost:3000/spotify_delete_unavailable/redirect');
+
 const scopes = encodeURIComponent('playlist-modify-public playlist-modify-private');
 const showDialog = true;
 
