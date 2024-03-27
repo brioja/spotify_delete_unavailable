@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Spotify Cleaner",
+  "name": "Spotify Unavailable Tracks Cleaner",
   "icons": [
     {
       "src": "favicon.ico",
