@@ -1,7 +1,7 @@
 import React from 'react';
 
 const clientId = 'bb5d13f3082c499fa9a2b2f86297b91d';
-const redirectUri = encodeURIComponent('http://localhost:3000/spotify-delete-unavailable/redirect'); // Ensure this matches your application's redirect URI
+const redirectUri = encodeURIComponent('http://localhost:3000/spotify_delete_unavailable/redirect'); // Ensure this matches your application's redirect URI
 const scopes = encodeURIComponent('playlist-modify-public playlist-modify-private');
 const showDialog = true;
 

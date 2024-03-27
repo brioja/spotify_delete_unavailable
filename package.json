@@ -1,6 +1,6 @@
 {
-    "name": "spotify-delete-unavailable",
-  "homepage": "https://brioja.github.io/spotify-delete-unavailable",
+    "name": "spotify_delete_unavailable",
+  "homepage": "https://brioja.github.io/spotify_delete_unavailable",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
