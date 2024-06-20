@@ -7,7 +7,7 @@ interface Playlist {
   name: string;
 }
 
-const SuccessPage: React.FC = () => {
+const GetPlaylistsPage: React.FC = () => {
   const location = useLocation();
   const accessToken = location.state?.accessToken;
   const [playlists, setPlaylists] = useState<Playlist[]>([]);
@@ -54,4 +54,4 @@ const SuccessPage: React.FC = () => {
   );
 };
 
-export default SuccessPage;
+export default GetPlaylistsPage;
