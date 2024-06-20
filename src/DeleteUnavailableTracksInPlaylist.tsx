@@ -38,7 +38,7 @@ const DeleteUnavailableTracksInPlaylist: React.FC = () => {
   const deleteUnavailableTracks = async () => {
     try {
       console.log(`Deleting unavailable tracks for playlist ${id}...`);
-      const unavailableTracks = tracks.filter(item => item.track.is_local);
+      const unavailableTracks = tracks.filter(item => item.track.available_markets.length === 0);
 
       if (unavailableTracks.length > 0) {
         const deleteResponse = await axios.delete(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
@@ -51,7 +51,7 @@ const DeleteUnavailableTracksInPlaylist: React.FC = () => {
         });
 
         console.log('Unavailable tracks deleted:', deleteResponse.data);
-        setTracks(tracks.filter(item => !item.track.is_local));
+        setTracks(tracks.filter(item => item.track.available_markets.length > 0));
       } else {
         console.log('No unavailable tracks to delete.');
       }
