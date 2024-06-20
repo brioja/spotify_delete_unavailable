@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const clientId = 'bb5d13f3082c499fa9a2b2f86297b91d';
 
-// Dynamically set redirectUri based on the environment                                                                                                                                 
+// Dynamically set redirectUri based on the environment                                                                                                                               
 const redirectUri = process.env.NODE_ENV === 'production'
   ? encodeURIComponent('https://brioja.github.io/spotify_delete_unavailable/')
   : encodeURIComponent('http://localhost:3000/spotify_delete_unavailable/');
@@ -11,18 +11,19 @@ const redirectUri = process.env.NODE_ENV === 'production'
 const scopes = encodeURIComponent('playlist-modify-public playlist-modify-private');
 const showDialog = true;
 
-const spotifyLoginUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=${scopes}&show_dialog=${showDialog}`;
+const spotifyLoginUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=${scopes}&show_dialog=${showDialog}`;
 
 const LoginPage: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const code = new URLSearchParams(location.search).get('code');
+  const hash = new URLSearchParams(location.hash.substring(1));
+  const accessToken = hash.get('access_token');
 
   useEffect(() => {
-    if (code) {
-      navigate('/success', { state: { code } });
+    if (accessToken) {
+      navigate('/success', { state: { accessToken } });
     }
-  }, [code, navigate]);
+  }, [accessToken, navigate]);
 
   return (
     <div>
