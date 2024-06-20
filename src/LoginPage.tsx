@@ -21,7 +21,7 @@ const LoginPage: React.FC = () => {
 
   useEffect(() => {
     if (accessToken) {
-      navigate('/success', { state: { accessToken } });
+      navigate('/get_playlists', { state: { accessToken } });
     }
   }, [accessToken, navigate]);
 

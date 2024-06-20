@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 
 interface Playlist {
@@ -45,7 +45,11 @@ const GetPlaylistsPage: React.FC = () => {
           <h2>Your Playlists</h2>
           <ul>
             {playlists.map((playlist) => (
-              <li key={playlist.id}>{playlist.name}</li>
+              <li key={playlist.id}>
+                <Link to={`/delete/${playlist.id}`} state={{ accessToken }}>
+                  {playlist.name}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
